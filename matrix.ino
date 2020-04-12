@@ -153,14 +153,14 @@ int spacer = 1;  // dots between letters
 int width  = 5 + spacer; // The font width is 5 pixels + spacer
 
 void display_message(String message){
-   for ( int i = 0 ; i < width * message.length() + matrix.width() - spacer; i++ ) {
-    //matrix.fillScreen(LOW);
+   for ( int i = 0 ; i < width * message.length() + matrix.width() - 1 - spacer; i++ ) {
+    matrix.fillScreen(LOW);
     int letter = i / width;
     int x = (matrix.width() - 1) - i % width;
     int y = (matrix.height() - 8) / 2; // center the text vertically
     while ( x + width - spacer >= 0 && letter >= 0 ) {
       if ( letter < message.length() ) {
-        matrix.drawChar(x, y, message[letter], HIGH, LOW, 1); // HIGH LOW means foreground ON, background off, reverse to invert the image
+        matrix.drawChar(x, y, message[letter], HIGH, LOW, 1);
       }
       letter--;
       x -= width;
