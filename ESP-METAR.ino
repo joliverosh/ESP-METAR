@@ -32,6 +32,8 @@ String mainStation = "SKCL";
 // Airport meteorological station METAR
 String stations[5] = {"SKPE", "SKAR", "SKPP", "SKRG", "SKMD"};
 
+const int time_delay = 5000; 
+
 void setup() {
   Serial.begin(115200);
   StartMatrix(1); // rotationOfDisplays
@@ -40,10 +42,10 @@ void setup() {
 }
 
 void loop() {
-  GET_METAR(mainStation,3); // Airport meteorological station decoded METAR
-  GET_METAR(mainStation,2);    // Airport meteorological station TAF
+  GET_METAR(mainStation,3);      // Airport meteorological station decoded METAR
+  GET_METAR(mainStation,2);      // Airport meteorological station TAF
     for (byte i = 0; i < 5; i = i + 1) {
-      GET_METAR(stations[i],1);
+      GET_METAR(stations[i],1);  // Airport meteorological station METAR
     }
   
 }
