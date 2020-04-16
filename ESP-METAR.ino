@@ -40,10 +40,10 @@ void setup() {
 }
 
 void loop() {
-  GET_METARD(mainStation); // Airport meteorological station decoded METAR
-  GET_TAF(mainStation);    // Airport meteorological station TAF
+  GET_METAR(mainStation,3); // Airport meteorological station decoded METAR
+  GET_METAR(mainStation,2);    // Airport meteorological station TAF
     for (byte i = 0; i < 5; i = i + 1) {
-      GET_METAR(stations[i]);
+      GET_METAR(stations[i],1);
     }
   
 }
